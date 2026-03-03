@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Greenhouse</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="Prototype/logo.png">
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar">
+    <ul class="nav-links">
+        <li><img src="Prototype/logo.png" alt="Icon" style="border-radius: 20px;"></li>
+        <li><a href="#home"><i class="fa-solid fa-house"></i> Home</a></li>
+        <li><a href="#prototype"><i class="fa-solid fa-leaf"></i> Prototype</a></li>
+        <li><a href="#demo"><i class="fa-solid fa-display"></i> Demo</a></li>
+        <li><a href="https://github.com/phamsyhieubeo/Project-Website"><i class="fa-solid fa-code"></i> Source</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="carousel">
+    <button class="arrow left" onclick="prevSlide()">&#8592;</button>
+
+    <div class="slides">
+      <img src="Prototype/s1.png" class="slide active" alt="Prototype 1">
+      <img src="Prototype/s2.png" class="slide" alt="Prototype 2">
+      <img src="Prototype/s3.png" class="slide" alt="Prototype 3">
+    </div>
+
+    <button class="arrow right" onclick="nextSlide()">&#8594;</button>
+  </div>
+</section>
+
+<section class="info" id="prototype">
+  <h2>Information</h2>
+  <p>
+    This Smart Greenhouse System uses sensors and automation to monitor<br>
+    temperature, humidity and soil moisture. It automatically controls<br>
+    irrigation and can send data to a website for monitoring.
+  </p>
+</section>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove("active"));
+    slides[index].classList.add("active");
+  }
+
+  function nextSlide() {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+
+  function prevSlide() {
+    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+    showSlide(currentSlide);
+  }
+</script>
+
+<section class="prototype-section" id="prototype">
+  <h2>Prototype</h2>
+  <p class="proto-lead">
+    The prototype includes a compact greenhouse structure and an Arduino-based monitoring and irrigation system.
+  </p>
+
+  <div class="proto-grid">
+    <figure class="proto-card">
+      <img src="Prototype/s1.png" alt="Prototype render 1">
+      <figcaption>3D greenhouse design – frame and clear panels.</figcaption>
+    </figure>
+
+    <figure class="proto-card">
+      <img src="Prototype/s2.png" alt="Prototype render 2">
+      <figcaption>Internal layout – irrigation tube and plant area.</figcaption>
+    </figure>
+
+    <figure class="proto-card">
+      <img src="Prototype/s3.png" alt="Prototype render 3">
+      <figcaption>Electronics – Arduino + sensors + relay control.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="demo-section" id="demo">
+  <h2>Live Demo</h2>
+  <p class="demo-lead">Real-time greenhouse monitoring simulation.</p>
+
+  <div class="demo-card">
+    <div class="demo-grid">
+      <div class="demo-box">
+        <h3>Temperature</h3>
+        <p id="temp">25°C</p>
+      </div>
+
+      <div class="demo-box">
+        <h3>Humidity</h3>
+        <p id="humidity">60%</p>
+      </div>
+
+      <div class="demo-box">
+        <h3>Soil Moisture</h3>
+        <p id="soil">420</p>
+      </div>
+
+      <div class="demo-box">
+        <h3>Pump Status</h3>
+        <p id="pump">OFF</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>
